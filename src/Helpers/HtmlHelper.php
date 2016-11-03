@@ -2,7 +2,12 @@
 
 namespace CommonLibs\Helpers;
 
-
+/**
+ * 
+ * @author pcmagas
+ * Class that aqllows you to perform checks to strings containing html values
+ * 
+ */
 class HtmlHelper
 {
 	/**
@@ -66,7 +71,7 @@ class HtmlHelper
 	{
 		$start = strpos($string, '<');
 		$end  = strrpos($string, '>',$start);
-		
+
 		$len=strlen($string);
 		
 		if ($end !== false) {
