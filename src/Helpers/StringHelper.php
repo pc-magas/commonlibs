@@ -1,29 +1,17 @@
 <?php
 
-namespace CommonLibs\Interfaces;
+namespace CommonLibs\Helpers;
 
-use AppBundle\Factories\ExceptionFactory;
 
 class StringHelper
 {
-	/**
-	 * Remove any html related tag from $string
-	 * @param string $string
-	 * @return string
-	 */
-	public static function removeHtml($string)
-	{
-		$string=trim($string);
-		$string= html_entity_decode($string);
-		$string=strip_tags($string);
 
-		return $string;
-	}
 
 	/**
-	 * Remove ant html tag and vaidates if $email is a valid $email
+	 * Remove ant html tag and vaidates if $email param is a valid $email
 	 * @param string $email
 	 * @return string
+	 * @throws \Exception When the $email param you have given is not a valid email
 	 */
 	public static function validateEmail($email)
 	{
@@ -31,19 +19,9 @@ class StringHelper
 
 		if(!filter_var($email,FILTER_VALIDATE_EMAIL))
 		{
-			throw ExceptionFactory::invalidParamException('email','email');
+			throw new \Exception("The param \$ email you have given does not contain valie values.");
 		}
 
 		return $email;
-	}
-
-	/**
-	* Checks if string contains html
-	* @param string $string The string that we want to check if it contains HTML
-	* @return boolean
-	*/
-	public static function isHtml($string)
-	{
-  	return preg_match("/<[^<]+>/",$string,$m) != 0;
 	}
 }
