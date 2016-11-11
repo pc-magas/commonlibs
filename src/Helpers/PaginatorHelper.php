@@ -9,7 +9,7 @@ class PaginatorHelper
 	 * @param int,string $page Page STARTING FROM 0 
 	 * @param int,string $limit The result limit
 	 */
-	public static function calculate($page,$limit)
+	public static function calculateFirstResult($page,$limit)
 	{
 		$page=(int)$page;
 		$limit=(int)$limit;
