@@ -52,4 +52,10 @@ interface CrudManagerInterface
 	 * 'some_key' => DESC
 	 */
 	public function search(array $searchParams, array $order ,$page,$limit);
+	
+	/**
+	 * Methos that retrieves data by a specific Id
+	 * @param string,int $id
+	 */
+	public function getById($id);
 }
